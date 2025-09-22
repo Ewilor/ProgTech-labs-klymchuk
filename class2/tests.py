@@ -30,7 +30,7 @@ class TestSchoolInfoAutomation(unittest.TestCase):
         data = {("6-A", "Test T.T."): {"Math": [10, 12, 8]}}
         with self.assertRaises(ValueError) as context:
             calcucale_avg(data, ("7-B", "No Name"), "Math")
-        self.assertEqual(str(context.exception), "Дитину не знайдено у словнику")
+        self.assertEqual(str(context.exception), "Учня не знайдено у словнику")
 
 if __name__ == "__main__":
     unittest.main()
