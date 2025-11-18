@@ -15,5 +15,4 @@ def main():
     except LookupError as e:
         print("Error:", e)
 
-def run_tab_text():
-    return "run tab"
+main()
