@@ -56,4 +56,9 @@ class TestOrderManager(unittest.TestCase):
         self.manager.add_order(self.order1)
         self.manager.find_order_by_id(99)
 
-unittest.main()
+if __name__ == '__main__':
+    unittest.main()
+    
+    import xmlrunner
+    runner = xmlrunner.XMLTestRunner(output='test-reports')
+    unittest.main(testRunner=runner, exit=False)
