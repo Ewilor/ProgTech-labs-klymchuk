@@ -10,7 +10,7 @@ pipeline {
     }
     stage('Build') {
       steps {
-        echo 'Building...${BUILD_NUMBER}'
+        echo "Building...${BUILD_NUMBER}"
         echo 'Build complete'
       }
     }
@@ -22,7 +22,7 @@ pipeline {
         }
       }
       steps {
-        sh 'cp -r $WORKSPACE/* .'
+        sh "cp -r $WORKSPACE/* ."
         sh 'mkdir -p test-reports'
         sh 'pip install xmlrunner'
         sh 'python3 tests.py'
