@@ -1,4 +1,5 @@
 import unittest
+import xmlrunner
 from helper import OrderManager
 
 class TestOrderManager(unittest.TestCase):
@@ -57,8 +58,5 @@ class TestOrderManager(unittest.TestCase):
         self.manager.find_order_by_id(99)
 
 if __name__ == '__main__':
-    unittest.main()
-    
-    import xmlrunner
     runner = xmlrunner.XMLTestRunner(output='test-reports')
     unittest.main(testRunner=runner, exit=False)
