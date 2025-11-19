@@ -22,7 +22,6 @@ pipeline {
         }
       }
       steps {
-        sh 'cp -r "${WORKSPACE}"/* .'
         sh 'pip install xmlrunner'
         sh 'mkdir -p test-reports'
         sh 'python3 tests.py'
