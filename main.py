@@ -14,5 +14,3 @@ def main():
         print("Find order by id 99:", manager.find_order_by_id(99))
     except LookupError as e:
         print("Error:", e)
-
-main()
