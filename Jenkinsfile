@@ -18,10 +18,11 @@ pipeline {
       agent {
         docker {
           image 'python:3.9-alpine'
-          args '-u=\"root\"'
+          args '-u root'
         }
       }
       steps {
+        sh 'apk add --no-cache build-base'
         sh 'pip install xmlrunner'
         sh 'mkdir -p test-reports'
         sh 'python3 tests.py'
