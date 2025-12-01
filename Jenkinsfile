@@ -24,7 +24,6 @@ pipeline {
       steps {
         sh 'apk add --no-cache build-base'
         sh 'pip install xmlrunner'
-        sh 'mkdir -p test-reports'
         sh 'python3 tests.py'
       }
       post {
