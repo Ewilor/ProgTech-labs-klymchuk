@@ -10,20 +10,20 @@ pipeline {
     }
     stage('Build') {
       steps {
-        echo 'Building...${BUILD_NUMBER}'
+        echo "Building...${BUILD_NUMBER}"
         echo 'Build complete'
       }
     }
     stage('Test') {
       agent {
         docker {
-          image 'python:3.12-alpine'
+          image 'python:3.9-alpine'
           args '-u=\"root\"'
         }
       }
       steps {
-        sh 'cp -r $WORKSPACE/* .'
         sh 'pip install xmlrunner'
+        sh 'mkdir -p test-reports'
         sh 'python3 tests.py'
       }
       post {
