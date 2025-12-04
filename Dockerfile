@@ -1,21 +1,8 @@
-FROM jenkins/jenkins:lts
+FROM python:3.12-alpine
+RUN apk add --update python3 py3-pip
 
-USER root
+WORKDIR /app
 
-RUN apt-get update && \
-    apt-get install -y ca-certificates curl gnupg lsb-release
+COPY . . 
 
-RUN install -m 0755 -d /etc/apt/keyrings && \
-    curl -fsSL https://download.docker.com/linux/debian/gpg \
-      -o /etc/apt/keyrings/docker.gpg && \
-    chmod a+r /etc/apt/keyrings/docker.gpg
-
-RUN echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] \
-  https://download.docker.com/linux/debian \
-  $(lsb_release -cs) stable" \
-  > /etc/apt/sources.list.d/docker.list
-
-RUN apt-get update && apt-get install -y docker-ce-cli
-
-USER jenkins
+CMD ["python3", "tests.py"]
